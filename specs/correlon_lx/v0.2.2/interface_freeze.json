@@ -1,0 +1,30 @@
+{
+  "version": "Correlon-LX-v0.2.2",
+  "revision_parent": {
+    "version": "Correlon-LX-v0.2.1",
+    "path": "../v0.2.1/interface_freeze.json",
+    "sha256": "DC062F27F2CFDA3C9055ADE7C938B8695D4CAD08B2DECB988FEB0FAC100D7657"
+  },
+  "revision_scope": "executable-representation-freeze",
+  "status": "EXTERNAL_MANIFEST_FREEZE_CANDIDATE",
+  "scientific_role": "cross-theory residual discovery service; candidate-edge generator only",
+  "prohibited_inference": [
+    "LX-positive implies direct causation",
+    "LX-positive implies shared ontology",
+    "LX-positive implies theory identity",
+    "LX-positive implies consciousness or qualia"
+  ],
+  "detector": {
+    "pairwise_scan": "max over lags -3..+3",
+    "linear_channel": "absolute Pearson residual correlation",
+    "nonlinear_channel": "fixed random-Fourier-feature normalized HSIC proxy",
+    "rff_features": 24,
+    "global_mode_significant_pairs_min": 8
+  },
+  "phase0r_preregistration": "phase0r_preregistration_v0.2.2.json",
+  "integrity": {
+    "scheme": "external-manifest-sha256",
+    "manifest": "manifest.sha256",
+    "self_referential_digest_fields": false
+  }
+}
