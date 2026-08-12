@@ -1,0 +1,43 @@
+{
+  "version": "Correlon-LX-v0.2.1",
+  "phase": "0F-prime External Manifest Freeze",
+  "audited_at": "2026-08-12T15:19:52.723622+00:00",
+  "source_commit": "7fa3ecd4913a8693b395d95f1bde88cd4f15cb9f",
+  "decision": "REPOSITORY_FREEZE_COMPLETE",
+  "eligible_for_cycle1": true,
+  "manifest_sha256": "5B148EF2BBF682AC2009CD4881B89DE6C6C63D600E1E73BA82D12021BCCD8B36",
+  "preregistration_sha256": "47F389E71D1EE49BDBEBEC28D41C2C73A046724C2B90255534C6DA0B35B3CD65",
+  "seed_namespace": "correlon-lx-v0.2.1-cycle1-run1-47f389e71d1e",
+  "manifest_entries": {
+    "interface_freeze.json": "DC062F27F2CFDA3C9055ADE7C938B8695D4CAD08B2DECB988FEB0FAC100D7657",
+    "phase0_pilot_results.json": "6E8B0FE07D93A08B04E8C00226B3DF96939712EABDCF87F78864AD06C6A59DE3",
+    "README.md": "0ACCFAC29CB54328FC0F4F1649487619CDF409B6B5715D68DDFE58BCCCF7448B"
+  },
+  "observed_sha256": {
+    "README.md": "0ACCFAC29CB54328FC0F4F1649487619CDF409B6B5715D68DDFE58BCCCF7448B",
+    "interface_freeze.json": "DC062F27F2CFDA3C9055ADE7C938B8695D4CAD08B2DECB988FEB0FAC100D7657",
+    "phase0_pilot_results.json": "6E8B0FE07D93A08B04E8C00226B3DF96939712EABDCF87F78864AD06C6A59DE3"
+  },
+  "missing_payloads": [],
+  "manifest_errors": [],
+  "byte_mismatches": [],
+  "parse_errors": [],
+  "cross_file_contract": {
+    "interface_version": true,
+    "fresh_revision_parent": true,
+    "external_manifest_scheme": true,
+    "no_self_referential_hash": true,
+    "legacy_pilot_provenance_preserved": true,
+    "rff_features": true,
+    "lags": true,
+    "scientific_boundary": true
+  },
+  "source_commit_checks": {
+    "source_commit_supplied": true,
+    "head_matches_source_commit": true,
+    "source_commit_exists": true
+  },
+  "failed_gates": [],
+  "scientific_claim_boundary": "candidate-edge generator only",
+  "next_action": "Run Phase 0R preregistration completeness precheck."
+}
