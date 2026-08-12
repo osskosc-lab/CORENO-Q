@@ -1,0 +1,47 @@
+{
+  "version": "Correlon-LX-v0.2.3",
+  "phase": "Cycle 0F v0.2.3 Repository Freeze",
+  "audited_at": "2026-08-12T17:38:44.798417+00:00",
+  "source_commit": "5931b28f7a26a486ba6cb97be5f885e333a04607",
+  "decision": "REPOSITORY_FREEZE_COMPLETE",
+  "eligible_for_experiment": true,
+  "seed_namespace": "correlon-lx-v0.2.3-df1a29455a4a",
+  "manifest_sha256": "D6308EEA2E08F3FB6C580B1D4CE8817C321139E522148DBB730DF5AFB55F1ED5",
+  "preregistration_sha256": "DF1A29455A4A6E29CBD85C244D28A842044EC10B45CEB501819187FEC4CE6534",
+  "manifest_entries": {
+    "interface_freeze.json": "78BAB6F2FA95BAC7675A580B395E5A0E851168844300FEBDD2DC27E3572F15FF",
+    "README.md": "9B96C47AE941FC86C2714DEF46C95D7CE25D05B06AD044549A8A9AA21059E6E9",
+    "preregistration_v0.2.3.json": "DF1A29455A4A6E29CBD85C244D28A842044EC10B45CEB501819187FEC4CE6534"
+  },
+  "observed_sha256": {
+    "README.md": "9B96C47AE941FC86C2714DEF46C95D7CE25D05B06AD044549A8A9AA21059E6E9",
+    "interface_freeze.json": "78BAB6F2FA95BAC7675A580B395E5A0E851168844300FEBDD2DC27E3572F15FF",
+    "preregistration_v0.2.3.json": "DF1A29455A4A6E29CBD85C244D28A842044EC10B45CEB501819187FEC4CE6534"
+  },
+  "missing": [],
+  "manifest_errors": [],
+  "mismatches": [],
+  "parse_errors": [],
+  "contract": {
+    "version": true,
+    "external_manifest": true,
+    "no_self_digest": true,
+    "parent_interface_hash": true,
+    "parent_final_hash": true,
+    "parent_stop_preserved": true,
+    "executable_status": true,
+    "protocol_hash": true,
+    "calibration_b": true,
+    "phase0c_n": true,
+    "candidate_ladder": true,
+    "synthetic_permutation_prohibited": true,
+    "scientific_boundary": true
+  },
+  "commit_checks": {
+    "exists": true,
+    "head_matches": true,
+    "tree_clean": true
+  },
+  "failed_gates": [],
+  "scientific_claim_boundary": "candidate-edge generator only"
+}

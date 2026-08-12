@@ -1,0 +1,5 @@
+candidate,combined_fwer,nonlinear_fwer,combined_fwer_pass
+rff24,0.051,0.053,True
+rff64,0.051,0.049,True
+rff128,0.051,0.041,True
+ensemble4x32,0.051,0.045,True

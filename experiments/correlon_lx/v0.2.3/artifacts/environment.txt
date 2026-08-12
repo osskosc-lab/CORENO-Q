@@ -1,0 +1,7 @@
+platform=Windows 11
+python=3.13.13
+numpy=2.4.4
+rng=NumPy PCG64
+workers=8
+replay=fresh detached clone
+source_commit=5931b28f7a26a486ba6cb97be5f885e333a04607

@@ -1,0 +1,64 @@
+{
+  "phase": "0N Nonlinear Detector Qualification",
+  "decision": "PHASE_0N_PASS",
+  "selected_candidate": "rff24",
+  "selection_rule": "lowest effective capacity, then preregistered tie order",
+  "candidate_results": [
+    {
+      "candidate": "rff24",
+      "effective_capacity": 24,
+      "square_nonlinear_tpr": 1.0,
+      "nonlinear_null_fpr": 0.03,
+      "direct_combined_tpr": 1.0,
+      "direct_linear_tpr": 1.0,
+      "phase0c_fwer_pass": true,
+      "square_nonlinear_tpr_pass": true,
+      "nonlinear_null_fpr_pass": true,
+      "direct_combined_tpr_pass": true,
+      "direct_linear_tpr_pass": true,
+      "candidate_pass": true
+    },
+    {
+      "candidate": "rff64",
+      "effective_capacity": 64,
+      "square_nonlinear_tpr": 1.0,
+      "nonlinear_null_fpr": 0.01,
+      "direct_combined_tpr": 1.0,
+      "direct_linear_tpr": 1.0,
+      "phase0c_fwer_pass": true,
+      "square_nonlinear_tpr_pass": true,
+      "nonlinear_null_fpr_pass": true,
+      "direct_combined_tpr_pass": true,
+      "direct_linear_tpr_pass": true,
+      "candidate_pass": true
+    },
+    {
+      "candidate": "rff128",
+      "effective_capacity": 128,
+      "square_nonlinear_tpr": 1.0,
+      "nonlinear_null_fpr": 0.03,
+      "direct_combined_tpr": 1.0,
+      "direct_linear_tpr": 1.0,
+      "phase0c_fwer_pass": true,
+      "square_nonlinear_tpr_pass": true,
+      "nonlinear_null_fpr_pass": true,
+      "direct_combined_tpr_pass": true,
+      "direct_linear_tpr_pass": true,
+      "candidate_pass": true
+    },
+    {
+      "candidate": "ensemble4x32",
+      "effective_capacity": 128,
+      "square_nonlinear_tpr": 1.0,
+      "nonlinear_null_fpr": 0.03,
+      "direct_combined_tpr": 1.0,
+      "direct_linear_tpr": 1.0,
+      "phase0c_fwer_pass": true,
+      "square_nonlinear_tpr_pass": true,
+      "nonlinear_null_fpr_pass": true,
+      "direct_combined_tpr_pass": true,
+      "direct_linear_tpr_pass": true,
+      "candidate_pass": true
+    }
+  ]
+}

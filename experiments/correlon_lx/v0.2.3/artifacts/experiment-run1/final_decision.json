@@ -1,0 +1,54 @@
+{
+  "version": "Correlon-LX-v0.2.3",
+  "source_commit": "5931b28f7a26a486ba6cb97be5f885e333a04607",
+  "phase_reached": "PHASE_0R_CONFIRMATORY_REPRESENTATION_ROBUSTNESS",
+  "decision": "PHASE_0R_PASS",
+  "repository_freeze": "REPOSITORY_FREEZE_COMPLETE",
+  "preregistration_sha256": "DF1A29455A4A6E29CBD85C244D28A842044EC10B45CEB501819187FEC4CE6534",
+  "seed_namespace": "correlon-lx-v0.2.3-df1a29455a4a",
+  "selected_candidate": "rff24",
+  "phase0c": {
+    "decision": "PHASE_0C_PASS",
+    "calibration_replicates": 1999,
+    "fresh_null_evaluation_replicates": 1000,
+    "block_permutation_used": false,
+    "rff24_combined_fwer": 0.051,
+    "rff24_nonlinear_fwer": 0.053
+  },
+  "phase0n": {
+    "decision": "PHASE_0N_PASS",
+    "selected_candidate": "rff24",
+    "square_nonlinear_tpr": 1.0,
+    "nonlinear_null_fpr": 0.03,
+    "direct_combined_tpr": 1.0,
+    "direct_linear_tpr": 1.0
+  },
+  "phase0r": {
+    "decision": "PHASE_0R_PASS",
+    "calibration_replicates_per_representation": 1999,
+    "evaluation_replicates_per_condition": 200,
+    "null_passing_representations": 4,
+    "nonlinear_control_passing_representations": 4,
+    "all_gate_passing_representations": 4,
+    "representation_metrics": {
+      "R1": {"fwer": 0.05, "square_nonlinear_tpr": 1.0, "square_nonlinear_localization": 1.0, "square_linear_tpr": 0.085},
+      "R2": {"fwer": 0.035, "square_nonlinear_tpr": 1.0, "square_nonlinear_localization": 1.0, "square_linear_tpr": 0.085},
+      "R3": {"fwer": 0.035, "square_nonlinear_tpr": 1.0, "square_nonlinear_localization": 1.0, "square_linear_tpr": 0.025},
+      "R4": {"fwer": 0.04, "square_nonlinear_tpr": 1.0, "square_nonlinear_localization": 1.0, "square_linear_tpr": 0.04}
+    },
+    "all_representations_direct_common_global_pass": true
+  },
+  "eligible_for_phase1a": true,
+  "phase1a_entered": false,
+  "qualified_theories": [],
+  "discovery_candidates": [],
+  "post_result_parameter_changes": [],
+  "reporting_correction": {
+    "raw_artifact": "raw_final_decision.json",
+    "raw_field": "phase1a_entered=true",
+    "corrected_interpretation": "Phase 0R PASS establishes eligibility only; no Phase 1A adapter qualification was executed in this run.",
+    "scientific_metrics_changed": false
+  },
+  "scientific_claim_boundary": "candidate-edge generator only",
+  "next_action": "Start Phase 1A Adapter Qualification as a separately frozen phase; no theory or edge is qualified yet."
+}

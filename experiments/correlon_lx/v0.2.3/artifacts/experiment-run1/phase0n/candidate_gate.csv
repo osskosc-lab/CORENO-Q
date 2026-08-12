@@ -1,0 +1,5 @@
+candidate,effective_capacity,square_nonlinear_tpr,nonlinear_null_fpr,direct_combined_tpr,direct_linear_tpr,phase0c_fwer_pass,square_nonlinear_tpr_pass,nonlinear_null_fpr_pass,direct_combined_tpr_pass,direct_linear_tpr_pass,candidate_pass
+rff24,24,1.0,0.03,1.0,1.0,True,True,True,True,True,True
+rff64,64,1.0,0.01,1.0,1.0,True,True,True,True,True,True
+rff128,128,1.0,0.03,1.0,1.0,True,True,True,True,True,True
+ensemble4x32,128,1.0,0.03,1.0,1.0,True,True,True,True,True,True
