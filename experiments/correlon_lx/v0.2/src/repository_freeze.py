@@ -190,7 +190,7 @@ def evaluate(root: Path, source_commit: str | None = None) -> dict:
         else f"correlon-lx-v0.2-cycle1-run1-{preregistration_hash[:12].lower()}",
         "scientific_claim_boundary": "candidate-edge generator only",
         "next_action": (
-            "Provide the hash derivation rule or a byte-identical interface freeze whose embedded freeze_sha256 matches its declared integrity convention; start a new freeze revision without altering this audit record."
+            "Publish a canonical hash derivation rule that reproduces the embedded value, or issue a fresh v0.2.1 namespace with an external manifest that hashes the payload without a self-referential digest; do not alter this audit record."
             if decision == "STOP_FREEZE_HASH_MISMATCH"
             else "Start Cycle1-run1 from PRECHECK using the reserved namespace."
         ),
@@ -215,6 +215,10 @@ def write_outputs(root: Path, result: dict) -> None:
     )
     (output / "environment.txt").write_text(
         f"platform={platform.platform()}\npython={platform.python_version()}\n",
+        encoding="utf-8",
+    )
+    (output / "requirements_snapshot.txt").write_text(
+        "Python standard library only (repository_freeze.py)\n",
         encoding="utf-8",
     )
     (output / "seed_manifest.csv").write_text(

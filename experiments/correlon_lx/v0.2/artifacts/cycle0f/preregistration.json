@@ -1,0 +1,33 @@
+{
+  "status": "CANDIDATE_NOT_FROZEN",
+  "sha256": "6FC0FA766D4BAF610195A5F398077B312E75B82A27ECFC19ABE517C29411242C",
+  "material": {
+    "version": "Correlon-LX-v0.2",
+    "source_commit": "a096ae18ea5ff0b325447d3f610503fe8cd1040f",
+    "source_sha256": {
+      "README.md": "444B59DEB6E5578A98DF85C556F48CCB24A2265FBA38415B4DBE03A2707835E6",
+      "specs/correlon_lx/v0.2/correlon_lx_v0.2_interface_freeze.json": "E6E638D24C3438F4189D82E1737B7EB58869A9FC8E326C927DF0ACD788231206",
+      "specs/correlon_lx/v0.2/correlon_lx_v0.2_phase0_pilot_results.json": "D674818B922F924C92FE24482DBF7D2BE15C863BEA3C5BA5C6CC2831DBFEA5C0"
+    },
+    "detector": {
+      "pairwise_scan": "max over lags -3..+3",
+      "linear_channel": "absolute Pearson residual correlation",
+      "nonlinear_channel": "fixed random-Fourier-feature normalized HSIC proxy",
+      "rff_features": 24,
+      "null_control": "family-wise max over all 15 pairs and all lags",
+      "threshold_rule": "95th percentile (higher order statistic) from null calibration seeds",
+      "global_mode_rule": "report number of pairwise scores exceeding frozen threshold; do not call a pair causal when broad/global activation is present"
+    },
+    "gates": {
+      "G0": "interface schema frozen and provenance present",
+      "G1": "null family-wise false positive <= 0.05",
+      "G2": "hidden pair bridge TPR >= 0.80",
+      "G3": "hidden pair localization >= 0.80",
+      "G4": "global driver flagged as broad/global rather than localized pair in >=0.80",
+      "G5": "nonlinear hidden bridge TPR >= 0.80",
+      "G6": "representation stability on a fresh transform family",
+      "G7": "no automatic causal/ontological promotion"
+    },
+    "phase0_threshold": 0.1562776683093607
+  }
+}

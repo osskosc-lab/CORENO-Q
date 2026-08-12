@@ -1,0 +1,21 @@
+{
+  "replay_type": "fresh_read_only_clone",
+  "repository": "https://github.com/osskosc-lab/CORENO-Q.git",
+  "ref": "agent/cycle0f-repository-freeze",
+  "commit": "a096ae18ea5ff0b325447d3f610503fe8cd1040f",
+  "detached_head": true,
+  "observed_sha256": {
+    "README.md": "444B59DEB6E5578A98DF85C556F48CCB24A2265FBA38415B4DBE03A2707835E6",
+    "specs/correlon_lx/v0.2/correlon_lx_v0.2_interface_freeze.json": "E6E638D24C3438F4189D82E1737B7EB58869A9FC8E326C927DF0ACD788231206",
+    "specs/correlon_lx/v0.2/correlon_lx_v0.2_phase0_pilot_results.json": "D674818B922F924C92FE24482DBF7D2BE15C863BEA3C5BA5C6CC2831DBFEA5C0"
+  },
+  "checkout_byte_stability": "PASS",
+  "unit_tests": {
+    "run": 4,
+    "passed": 4,
+    "failed": 0
+  },
+  "cycle0f_exit_code": 2,
+  "cycle0f_decision": "STOP_FREEZE_HASH_MISMATCH"
+}
+
