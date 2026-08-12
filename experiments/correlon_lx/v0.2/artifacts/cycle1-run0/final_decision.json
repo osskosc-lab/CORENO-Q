@@ -1,0 +1,52 @@
+{
+  "version": "Correlon-LX-v0.2",
+  "phase_reached": "PRECHECK",
+  "decision": "STOP_MISSING_FROZEN_INPUT",
+  "qualified_theories": [],
+  "blocked_theories": [
+    "MDO",
+    "SRRD",
+    "PH",
+    "HISTORY_CAUSALITY",
+    "FPCRH_FCA",
+    "HCVL"
+  ],
+  "discovery_candidates": [],
+  "falsification_survivors": [],
+  "confirmatory_candidates": [],
+  "global_modes": [],
+  "failed_gates": [
+    "repository_has_no_commits_or_refs",
+    "missing_correlon_lx_v0.2_interface_freeze.json",
+    "missing_correlon_lx_v0.2_phase0_pilot_results.json",
+    "missing_README.md",
+    "missing_specs_correlon_lx_v0.2",
+    "missing_artifacts_correlon_lx_v0.2",
+    "missing_experiments_correlon_lx_v0.2"
+  ],
+  "warnings": [
+    "The supplied pasted-text protocol contains mojibake in portions of Japanese prose; intact headings, ASCII identifiers, code blocks, and stop rules were used for this audit."
+  ],
+  "scientific_claim_boundary": "candidate-edge generator only",
+  "next_action": "Populate the repository with the frozen interface, Phase 0 pilot results, README, and declared v0.2 directories; then start a fresh preregistered namespace and rerun from PRECHECK without modifying gates after seeing results.",
+  "repository": {
+    "url": "https://github.com/osskosc-lab/CORENO-Q.git",
+    "repository_id": "1332069821",
+    "default_branch": "main",
+    "visibility": "public",
+    "reported_size_kb": 0,
+    "git_commit": null
+  },
+  "execution": {
+    "started_at": "2026-08-12T22:44:00+09:00",
+    "independent_checks": [
+      "GitHub repository metadata",
+      "GitHub contents API",
+      "git clone",
+      "git ls-remote"
+    ],
+    "attachment_sha256": "1A80BAA6124DC7E4330E2460660771D0737ABAEB60DD227939069FCF924A8DE5",
+    "python_version": "3.12.13",
+    "git_version": "2.53.0.windows.3"
+  }
+}

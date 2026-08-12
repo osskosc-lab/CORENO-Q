@@ -1,0 +1,121 @@
+{
+  "version": "Correlon-LX-v0.2",
+  "status": "INTERFACE_FREEZE_PHASE0",
+  "scientific_role": "cross-theory residual discovery service; candidate-edge generator only",
+  "prohibited_inference": [
+    "LX-positive implies direct causation",
+    "LX-positive implies shared ontology",
+    "LX-positive implies theory identity",
+    "LX-positive implies consciousness or qualia"
+  ],
+  "packet_schema": {
+    "theory_id": "string",
+    "theory_version": "string",
+    "unit_id": "seed/episode/window/graph_id",
+    "index": "time/step/intervention/seed/graph sequence index",
+    "observed": "scalar or vector",
+    "predicted": "scalar or vector from theory-local frozen model",
+    "residual": "observed - predicted, or preregistered signed discrepancy",
+    "intervention_id": "nullable string",
+    "environment_id": "nullable string",
+    "seed": "nullable integer",
+    "evidence_level": [
+      "theorem_static",
+      "synthetic_positive_control",
+      "synthetic_confirmatory",
+      "hypothesis_only",
+      "summary_only"
+    ],
+    "known_edges": "list of theory-known connections removed before LX scan",
+    "representation": "name + frozen transformation",
+    "provenance": "source artifact + hash when available",
+    "eligibility": [
+      "LIVE_RESIDUAL",
+      "STATIC_ONLY",
+      "ADAPTER_DEFINED_RAW_MISSING",
+      "DESIGN_ONLY"
+    ]
+  },
+  "theory_interfaces": {
+    "MDO": {
+      "primary_quantity": [
+        "N_D(G)=|E_G|",
+        "Phi_D(G)=2|E_G|"
+      ],
+      "eligibility": "STATIC_ONLY",
+      "note": "No time/causal theorem is licensed by the MDO paper. Dynamic LX use requires a separately preregistered graph-sequence adapter."
+    },
+    "SRRD": {
+      "primary_quantity": [
+        "R_shuffle",
+        "R_frozen",
+        "psi_update",
+        "R_OOD"
+      ],
+      "eligibility": "ADAPTER_DEFINED_RAW_MISSING",
+      "note": "Use seed/trajectory residuals; do not encode 'SRRD decomposition identified' because Phase 2 rejected that stronger claim."
+    },
+    "PH": {
+      "primary_quantity": [
+        "K_V",
+        "K_O",
+        "R_OOD",
+        "E_channel",
+        "E_rank",
+        "E_phase",
+        "E_cancel",
+        "E_J",
+        "E_recovery"
+      ],
+      "eligibility": "LIVE_RESIDUAL",
+      "note": "Carry evidence_level and final non-identifiability flag. v0.3 detector-validation outputs must not be promoted to latent-node identity."
+    },
+    "HISTORY_CAUSALITY": {
+      "primary_quantity": [
+        "ICQ",
+        "ICQ_residual",
+        "IAT_order_effect",
+        "MHCB_B"
+      ],
+      "eligibility": "ADAPTER_DEFINED_RAW_MISSING",
+      "note": "Residual must be after state representation / reset control."
+    },
+    "FPCRH_FCA": {
+      "primary_quantity": [
+        "Delta_PH_star",
+        "FCA_abs"
+      ],
+      "eligibility": "DESIGN_ONLY",
+      "note": "FPCRH v2.1 is hypothesis/design level; no FCA experimental residual stream located."
+    },
+    "HCVL": {
+      "primary_quantity": [
+        "Best_over_State",
+        "Shuffle_over_Best",
+        "heldout_value_error"
+      ],
+      "eligibility": "ADAPTER_DEFINED_RAW_MISSING",
+      "note": "Phase 1C is FALSIFIED_OR_INCONCLUSIVE for representation-independent identification; preserve that evidence flag."
+    }
+  },
+  "detector": {
+    "pairwise_scan": "max over lags -3..+3",
+    "linear_channel": "absolute Pearson residual correlation",
+    "nonlinear_channel": "fixed random-Fourier-feature normalized HSIC proxy",
+    "rff_features": 24,
+    "null_control": "family-wise max over all 15 pairs and all lags",
+    "threshold_rule": "95th percentile (higher order statistic) from null calibration seeds",
+    "global_mode_rule": "report number of pairwise scores exceeding frozen threshold; do not call a pair causal when broad/global activation is present"
+  },
+  "gates": {
+    "G0": "interface schema frozen and provenance present",
+    "G1": "null family-wise false positive <= 0.05",
+    "G2": "hidden pair bridge TPR >= 0.80",
+    "G3": "hidden pair localization >= 0.80",
+    "G4": "global driver flagged as broad/global rather than localized pair in >=0.80",
+    "G5": "nonlinear hidden bridge TPR >= 0.80",
+    "G6": "representation stability on a fresh transform family",
+    "G7": "no automatic causal/ontological promotion"
+  },
+  "freeze_sha256": "4e5e749eb2ecff2732a18b3d828af834bcbefdec6be2b0d1fec7a532ee25d60a"
+}
