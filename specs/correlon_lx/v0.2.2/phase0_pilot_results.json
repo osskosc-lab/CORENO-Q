@@ -1,0 +1,11 @@
+{
+  "version": "Correlon-LX-v0.2-Phase0",
+  "scope": "historical synthetic nonlinear-repair detector audit only; threshold is not reused in v0.2.2",
+  "T": 600,
+  "variables": 6,
+  "lags": [-3, -2, -1, 0, 1, 2, 3],
+  "rff_features": 24,
+  "combined_fwer_threshold": 0.1562776683093607,
+  "decision": "PILOT_PASS_FOR_NONLINEAR_REPAIR; NOT A V0.2.2 CALIBRATION",
+  "v0.2.2_rule": "independent 1000-replicate calibration per representation"
+}

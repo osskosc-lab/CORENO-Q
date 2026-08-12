@@ -1,0 +1,107 @@
+{
+  "version": "Correlon-LX-v0.2.2",
+  "protocol_source_sha256": "3E7152C1034A4FE85A0B0709368D387A0D2AD170A34D20FAEDACDDACE75E2C12",
+  "status": "EXECUTABLE_REPRESENTATION_FREEZE",
+  "runtime": {
+    "python": "3.12.13",
+    "numpy": "2.3.5",
+    "rng": "numpy.random.Generator(numpy.random.PCG64(uint64_seed))",
+    "floating_point": "IEEE-754 float64"
+  },
+  "state": {
+    "variables_in_order": ["D", "R", "H", "P", "F", "V"],
+    "initial_state": 0.0,
+    "burn_in": 200,
+    "retained_length": 600,
+    "common_ar": 0.45,
+    "innovation_distribution": "independent N(0,1)",
+    "draw_order": "for each dataset draw eps as shape (800,6) in variable order D,R,H,P,F,V, then draw eta as length 800; unused eta is still drawn",
+    "retained_indices": "simulate recurrence steps 1..800; discard steps 1..200; retain steps 201..800"
+  },
+  "synthetic_generators": {
+    "null": "X[j,t]=0.45*X[j,t-1]+eps[j,t] for all six variables",
+    "direct_linear": "null except V[t]=0.45*V[t-1]+0.65*H[t-1]+eps[V,t]",
+    "common_pair": "Z[t]=0.60*Z[t-1]+eta[t]; H[t]=0.45*H[t-1]+0.70*Z[t-1]+eps[H,t]; V analogously; other variables null",
+    "nonlinear_square": "null H; sigma_H_sq=1/(1-0.45^2); q(h)=(h^2-sigma_H_sq)/(sqrt(2)*sigma_H_sq); V[t]=0.45*V[t-1]+0.75*q(H[t-1])+eps[V,t]",
+    "nonlinear_tanh": "null H; sigma_H=sqrt(1/(1-0.45^2)); V[t]=0.45*V[t-1]+0.90*tanh(H[t-1]/sigma_H)+eps[V,t]",
+    "global_common": "Z[t]=0.60*Z[t-1]+eta[t]; X[j,t]=0.45*X[j,t-1]+0.55*Z[t-1]+eps[j,t] for all six variables",
+    "target_pair": ["H", "V"]
+  },
+  "dataset_seed_mapping": {
+    "algorithm": "UTF-8 canonical string -> SHA256 -> first 8 bytes unsigned big-endian uint64",
+    "calibration": "Correlon-LX-v0.2.2|phase0R|dataset|partition=calibration|representation=<R>|condition=null|replicate=<1-based>",
+    "evaluation": "Correlon-LX-v0.2.2|phase0R|dataset|partition=evaluation|representation=SHARED|condition=<condition>|replicate=<1-based>",
+    "freshness": "calibration and evaluation strings are disjoint; evaluation raw datasets are shared across representations"
+  },
+  "representations": {
+    "R1": "z=(x-mean)/sqrt(mean((x-mean)^2)); ddof=0; if scale<=1e-12 output all zero",
+    "R2": "m=median; MAD=median(abs(x-m)); scale=1.482602218505602*MAD; even median averages central two values; if scale<=1e-12 output all zero",
+    "R3": "average ranks for ties; p=(rank-0.5)/n; clip p to [1e-6,1-1e-6]; statistics.NormalDist().inv_cdf(p)",
+    "R4": "winsorize at q=.01,.99 using NumPy method=linear; then R1 z-score with same zero policy",
+    "application_order": "apply to each full 600-point variable separately before lag alignment"
+  },
+  "rff": {
+    "kernel": "Gaussian RBF exp(-(x-y)^2/(2*sigma^2))",
+    "sigma": 1.0,
+    "features": 24,
+    "feature": "sqrt(2/24)*cos(w*x+b)",
+    "w_distribution": "N(0,1)",
+    "b_distribution": "Uniform(0,2*pi)",
+    "adaptive_bandwidth_prohibited": true,
+    "seed_mapping": "Correlon-LX-v0.2.2|phase0R|representation=<R>|pair=<canonical_i>-<canonical_j>|lag=<lag>|side=<X_or_Y>; UTF-8 SHA256 first 8 bytes unsigned big-endian uint64"
+  },
+  "normalized_hsic": {
+    "centering": "column-center both n x 24 RFF matrices",
+    "covariance": "Cxy=PhiX_centered.T@PhiY_centered/(n-1); Cxx and Cyy analogously",
+    "score": "frobenius_norm(Cxy)^2/sqrt(frobenius_norm(Cxx)^2*frobenius_norm(Cyy)^2)",
+    "zero_policy": "if denominator<=1e-15 score=0"
+  },
+  "lags": {
+    "values": [-3, -2, -1, 0, 1, 2, 3],
+    "definition": "S_XY(lag)=S(X[t],Y[t+lag])",
+    "alignment": "overlap only; no padding, wrap, interpolation, or extrapolation",
+    "effective_n": "600-abs(lag)"
+  },
+  "null_calibration": {
+    "replicates_per_representation": 1000,
+    "block_length": 20,
+    "blocks": 30,
+    "operation": "independently permute the 30 block orders of each transformed series; preserve within-block order",
+    "permutation_seed": "Correlon-LX-v0.2.2|phase0R|null|replicate=<1-based>|series=<D/R/H/P/F/V>; UTF-8 SHA256 first 8 bytes unsigned big-endian uint64",
+    "statistic": "maximum over all 15 pairs, seven lags, and both channels",
+    "threshold": "sort 1000 maxima ascending and use one-based k=ceil(.95*(B-1))+1=951"
+  },
+  "evaluation": {
+    "replicates_per_condition": 200,
+    "conditions": ["null", "direct_linear", "common_pair", "nonlinear_square", "nonlinear_tanh", "global_common"],
+    "threshold_comparison": "score > threshold",
+    "localization": "target H-V is significant and has the unique maximum pair score; exact ties fail localization",
+    "broad_global_mode": "at least 8 of 15 pair scores are significant; suppress individual candidate labels"
+  },
+  "gate": {
+    "per_representation": {
+      "fwer_null_max": 0.05,
+      "direct_tpr_min": 0.80,
+      "direct_localization_min": 0.80,
+      "common_pair_tpr_min": 0.80,
+      "common_pair_localization_min": 0.80,
+      "square_tpr_min": 0.80,
+      "square_localization_min": 0.80,
+      "tanh_tpr_min": 0.80,
+      "global_broad_mode_rate_min": 0.80
+    },
+    "phase_pass": "at least 3 of 4 representations pass every per-representation gate",
+    "pass_decision": "PHASE_0R_PASS",
+    "failure_decision": "STOP_REPRESENTATION_INSTABILITY"
+  },
+  "post_result_changes_prohibited": [
+    "generator coefficients",
+    "kernel bandwidth",
+    "RFF feature count",
+    "lag range",
+    "winsor quantiles",
+    "block length",
+    "threshold quantile"
+  ],
+  "scientific_claim_boundary": "candidate-edge generator only"
+}

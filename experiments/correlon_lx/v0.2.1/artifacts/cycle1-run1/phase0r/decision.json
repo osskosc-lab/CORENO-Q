@@ -1,0 +1,32 @@
+{
+  "version": "Correlon-LX-v0.2.1",
+  "phase": "0R Representation Robustness PRECHECK",
+  "audited_at": "2026-08-12T15:19:52.792235+00:00",
+  "freeze_decision_sha256": "056400BC059EC6F16FCF7E7F592236F09FAAE765EAF191CA9727EF0377FF0C13",
+  "preregistration_sha256": "47F389E71D1EE49BDBEBEC28D41C2C73A046724C2B90255534C6DA0B35B3CD65",
+  "seed_namespace": "correlon-lx-v0.2.1-cycle1-run1-47f389e71d1e",
+  "decision": "STOP_REPRESENTATION_SPEC_INCOMPLETE",
+  "data_generated": false,
+  "null_resamples_executed": 0,
+  "evaluation_replicates_executed": 0,
+  "missing_frozen_implementation_fields": [
+    "synthetic_generators.null_equation_and_parameters",
+    "synthetic_generators.direct_linear_equation_and_parameters",
+    "synthetic_generators.common_pair_equation_and_parameters",
+    "synthetic_generators.nonlinear_square_equation_and_parameters",
+    "synthetic_generators.nonlinear_tanh_equation_and_parameters",
+    "synthetic_generators.global_common_equation_and_parameters",
+    "representations.zscore_ddof_and_zero_variance_policy",
+    "representations.mad_scale_ties_and_zero_policy",
+    "representations.rank_gaussian_formula_and_tie_policy",
+    "representations.winsor_quantiles_and_zero_variance_policy",
+    "nonlinear.kernel_family_and_bandwidth_rule",
+    "nonlinear.rff_distribution_phase_rule_and_seed_mapping",
+    "nonlinear.normalized_hsic_estimator_formula",
+    "lags.boundary_and_effective_sample_rule",
+    "nulls.resampling_algorithm_block_length_and_seed_mapping",
+    "threshold.higher_order_statistic_index_rule"
+  ],
+  "scientific_claim_boundary": "candidate-edge generator only",
+  "next_action": "Publish a fresh preregistration revision that fixes every missing implementation detail before any synthetic seed is drawn."
+}

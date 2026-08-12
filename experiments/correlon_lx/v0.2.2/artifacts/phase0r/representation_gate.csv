@@ -1,0 +1,5 @@
+representation,threshold,fwer_null,direct_tpr,direct_localization,common_pair_tpr,common_pair_localization,square_tpr,square_localization,tanh_tpr,global_broad_mode_rate,fwer_null_pass,direct_tpr_pass,direct_localization_pass,common_pair_tpr_pass,common_pair_localization_pass,square_tpr_pass,square_localization_pass,tanh_tpr_pass,global_broad_mode_pass,representation_pass
+R1,0.16937817098482336,0.095,1.0,1.0,1.0,1.0,0.065,0.065,1.0,1.0,False,True,True,True,True,False,False,True,True,False
+R2,0.17037990732646938,0.085,1.0,1.0,1.0,1.0,0.055,0.055,1.0,1.0,False,True,True,True,True,False,False,True,True,False
+R3,0.1688222512562696,0.1,1.0,1.0,1.0,1.0,0.06,0.06,1.0,1.0,False,True,True,True,True,False,False,True,True,False
+R4,0.16823770480934538,0.1,1.0,1.0,1.0,1.0,0.045,0.045,1.0,1.0,False,True,True,True,True,False,False,True,True,False

@@ -1,0 +1,14 @@
+# Preserve byte-exact frozen source assets across platforms.
+/README.md -text
+/specs/correlon_lx/v0.2/correlon_lx_v0.2_interface_freeze.json -text
+/specs/correlon_lx/v0.2/correlon_lx_v0.2_phase0_pilot_results.json -text
+/specs/correlon_lx/v0.2.1/interface_freeze.json -text
+/specs/correlon_lx/v0.2.1/phase0_pilot_results.json -text
+/specs/correlon_lx/v0.2.1/README.md -text
+/specs/correlon_lx/v0.2.1/manifest.sha256 -text
+/specs/correlon_lx/v0.2.1/preregistration.json -text
+/specs/correlon_lx/v0.2.2/interface_freeze.json -text
+/specs/correlon_lx/v0.2.2/phase0_pilot_results.json -text
+/specs/correlon_lx/v0.2.2/README.md -text
+/specs/correlon_lx/v0.2.2/phase0r_preregistration_v0.2.2.json -text
+/specs/correlon_lx/v0.2.2/manifest.sha256 -text

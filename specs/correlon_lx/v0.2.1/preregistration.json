@@ -1,0 +1,60 @@
+{
+  "version": "Correlon-LX-v0.2.1",
+  "revision_type": "fresh revision",
+  "protocol_source_sha256": "4AA0659255A4893D7452D8E2B3FD8273B1B1964A7ECD486BB368C581EC3C4255",
+  "phase_order": [
+    "0F_EXTERNAL_MANIFEST_FREEZE",
+    "0R_REPRESENTATION_ROBUSTNESS",
+    "1A_ADAPTER_QUALIFICATION",
+    "1B_BRIDGEBENCH_ALIGNMENT",
+    "1C_FROZEN_LEAP_DISCOVERY",
+    "1D_ADVERSARIAL_FALSIFICATION",
+    "1E_FRESH_CONFIRMATORY",
+    "1F_CAUSAL_HANDOFF"
+  ],
+  "phase0r": {
+    "representations": [
+      "raw z-score",
+      "median/MAD",
+      "rank Gaussian",
+      "winsorized z-score"
+    ],
+    "synthetic_classes": [
+      "null",
+      "direct_linear",
+      "common_pair",
+      "nonlinear_square",
+      "nonlinear_tanh",
+      "global_common"
+    ],
+    "null_calibration_replicates_per_representation": 1000,
+    "fresh_evaluation_replicates_per_condition": 200,
+    "independent_calibration_per_representation": true,
+    "lags": [-3, -2, -1, 0, 1, 2, 3],
+    "linear_channel": "absolute Pearson residual correlation",
+    "nonlinear_channel": "fixed random-Fourier-feature normalized HSIC proxy",
+    "rff_features": 24,
+    "threshold_rule": "95th percentile higher order statistic of the family-wise maximum over pair, lag, and channel",
+    "pass_rule": {
+      "minimum_passing_representations": 3,
+      "fwer_null_max": 0.05,
+      "direct_tpr_min": 0.8,
+      "direct_localization_min": 0.8,
+      "nonlinear_tpr_min": 0.8,
+      "nonlinear_localization_min": 0.8,
+      "global_mislocalized_pair_max": 0.2
+    },
+    "failure_decision": "STOP_REPRESENTATION_INSTABILITY"
+  },
+  "phase1a": {
+    "theories": ["MDO", "SRRD", "PH", "HISTORY_CAUSALITY", "FPCRH_FCA", "HCVL"],
+    "network_scan_minimum_qualified_theories": 3,
+    "static_only_and_design_only_dynamic_scan_prohibited": true
+  },
+  "freshness": {
+    "seed_namespace_issued_only_after_phase0f_pass": true,
+    "discovery_and_confirmatory_namespaces_disjoint": true
+  },
+  "scientific_claim_boundary": "candidate-edge generator only",
+  "implementation_freeze_status": "PENDING_COMPLETENESS_AUDIT"
+}

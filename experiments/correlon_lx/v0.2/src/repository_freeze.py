@@ -23,7 +23,13 @@ REQUIRED_DIRS = [
     "experiments/correlon_lx/v0.2/src",
     "experiments/correlon_lx/v0.2/tests",
     "experiments/correlon_lx/v0.2/artifacts/cycle1-run0",
+    "experiments/correlon_lx/v0.2/artifacts/cycle1-run1",
 ]
+REQUIRED_ATTRIBUTES = {
+    "/README.md -text",
+    "/specs/correlon_lx/v0.2/correlon_lx_v0.2_interface_freeze.json -text",
+    "/specs/correlon_lx/v0.2/correlon_lx_v0.2_phase0_pilot_results.json -text",
+}
 
 
 def sha256(path: Path) -> str:
@@ -64,6 +70,17 @@ def evaluate(root: Path, source_commit: str | None = None) -> dict:
             )
 
     missing_dirs = [d for d in REQUIRED_DIRS if not (root / d).is_dir()]
+    attributes_path = root / ".gitattributes"
+    attribute_lines = (
+        {
+            line.strip()
+            for line in attributes_path.read_text(encoding="utf-8").splitlines()
+            if line.strip() and not line.lstrip().startswith("#")
+        }
+        if attributes_path.is_file()
+        else set()
+    )
+    missing_attributes = sorted(REQUIRED_ATTRIBUTES - attribute_lines)
     parse_errors = []
     interface = None
     pilot = None
@@ -108,6 +125,8 @@ def evaluate(root: Path, source_commit: str | None = None) -> dict:
     failed_gates = []
     if missing or missing_dirs:
         failed_gates.append("missing_required_source")
+    if missing_attributes:
+        failed_gates.append("checkout_byte_stability_not_frozen")
     if byte_mismatches:
         failed_gates.append("source_manifest_byte_mismatch")
     if parse_errors:
@@ -119,6 +138,8 @@ def evaluate(root: Path, source_commit: str | None = None) -> dict:
 
     if "missing_required_source" in failed_gates:
         decision = "STOP_MISSING_FROZEN_INPUT"
+    elif "checkout_byte_stability_not_frozen" in failed_gates:
+        decision = "STOP_CHECKOUT_BYTE_INSTABILITY"
     elif "source_manifest_byte_mismatch" in failed_gates:
         decision = "STOP_SOURCE_BYTE_MISMATCH"
     elif "source_parse_failure" in failed_gates:
@@ -151,6 +172,8 @@ def evaluate(root: Path, source_commit: str | None = None) -> dict:
         "observed_sha256": observed,
         "missing_files": missing,
         "missing_directories": missing_dirs,
+        "missing_gitattributes_rules": missing_attributes,
+        "checkout_byte_stability": not missing_attributes,
         "byte_mismatches": byte_mismatches,
         "parse_errors": parse_errors,
         "cross_file_consistency": consistency,
@@ -167,7 +190,7 @@ def evaluate(root: Path, source_commit: str | None = None) -> dict:
         else f"correlon-lx-v0.2-cycle1-run1-{preregistration_hash[:12].lower()}",
         "scientific_claim_boundary": "candidate-edge generator only",
         "next_action": (
-            "Provide the hash derivation rule or a byte-identical interface freeze whose embedded freeze_sha256 matches its declared integrity convention; start a new freeze revision without altering this audit record."
+            "Publish a canonical hash derivation rule that reproduces the embedded value, or issue a fresh v0.2.1 namespace with an external manifest that hashes the payload without a self-referential digest; do not alter this audit record."
             if decision == "STOP_FREEZE_HASH_MISMATCH"
             else "Start Cycle1-run1 from PRECHECK using the reserved namespace."
         ),
@@ -192,6 +215,10 @@ def write_outputs(root: Path, result: dict) -> None:
     )
     (output / "environment.txt").write_text(
         f"platform={platform.platform()}\npython={platform.python_version()}\n",
+        encoding="utf-8",
+    )
+    (output / "requirements_snapshot.txt").write_text(
+        "Python standard library only (repository_freeze.py)\n",
         encoding="utf-8",
     )
     (output / "seed_manifest.csv").write_text(
@@ -234,4 +261,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     sys.exit(main())
-

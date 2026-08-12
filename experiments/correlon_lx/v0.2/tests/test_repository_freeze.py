@@ -23,6 +23,11 @@ class RepositoryFreezeTests(unittest.TestCase):
         result = MODULE.evaluate(ROOT, "test-commit")
         self.assertTrue(all(result["cross_file_consistency"].values()))
 
+    def test_checkout_byte_stability_is_frozen(self):
+        result = MODULE.evaluate(ROOT, "test-commit")
+        self.assertTrue(result["checkout_byte_stability"])
+        self.assertEqual(result["missing_gitattributes_rules"], [])
+
     def test_embedded_hash_mismatch_is_not_repaired(self):
         result = MODULE.evaluate(ROOT, "test-commit")
         self.assertNotEqual(

@@ -1,0 +1,23 @@
+{
+  "version": "Correlon-LX-v0.2.1",
+  "source_commit": "7fa3ecd4913a8693b395d95f1bde88cd4f15cb9f",
+  "phase_reached": "0R_REPRESENTATION_ROBUSTNESS_PRECHECK",
+  "decision": "STOP_REPRESENTATION_SPEC_INCOMPLETE",
+  "repository_freeze": {
+    "decision": "REPOSITORY_FREEZE_COMPLETE",
+    "eligible_for_cycle1": true,
+    "manifest_sha256": "5B148EF2BBF682AC2009CD4881B89DE6C6C63D600E1E73BA82D12021BCCD8B36",
+    "preregistration_sha256": "47F389E71D1EE49BDBEBEC28D41C2C73A046724C2B90255534C6DA0B35B3CD65"
+  },
+  "seed_namespace": "correlon-lx-v0.2.1-cycle1-run1-47f389e71d1e",
+  "data_generated": false,
+  "null_resamples_executed": 0,
+  "evaluation_replicates_executed": 0,
+  "phase1a_entered": false,
+  "qualified_theories": [],
+  "discovery_candidates": [],
+  "falsification_survivors": [],
+  "confirmatory_candidates": [],
+  "scientific_claim_boundary": "candidate-edge generator only",
+  "next_action": "Create a fresh preregistration revision that freezes the sixteen missing Phase 0R implementation fields before drawing any seed."
+}

@@ -1,0 +1,27 @@
+{
+  "version": "Correlon-LX-v0.2.2",
+  "source_commit": "16a0ed249d022ac582220cf42045854ea759c55b",
+  "phase_reached": "0R_REPRESENTATION_ROBUSTNESS",
+  "decision": "STOP_REPRESENTATION_INSTABILITY",
+  "repository_freeze": {
+    "decision": "REPOSITORY_FREEZE_COMPLETE",
+    "manifest_sha256": "A2C8E9BF9EBED6F2691730AD26311166D2AA07C4982E7A4AC794B2DFE3B40625",
+    "preregistration_sha256": "C5201E8356ABF8519FD122291075182D0D6C4A4FD621D423DD385CECD652D0FD"
+  },
+  "seed_namespace": "correlon-lx-v0.2.2-phase0r-c5201e8356ab",
+  "calibration_replicates": 4000,
+  "fresh_evaluation_datasets": 1200,
+  "representation_evaluations": 4800,
+  "passing_representations": 0,
+  "failed_gate_families": [
+    "null_FWER",
+    "nonlinear_square_TPR",
+    "nonlinear_square_localization"
+  ],
+  "phase1a_entered": false,
+  "qualified_theories": [],
+  "discovery_candidates": [],
+  "post_result_parameter_changes": [],
+  "scientific_claim_boundary": "candidate-edge generator only",
+  "next_action": "End v0.2.2. Any modification requires a fresh v0.2.3 revision."
+}

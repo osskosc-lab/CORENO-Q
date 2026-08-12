@@ -1,0 +1,74 @@
+{
+  "version": "Correlon-LX-v0.2-Phase0",
+  "scope": "synthetic nonlinear-repair detector audit only; not six-theory real-data inference",
+  "T": 600,
+  "variables": 6,
+  "lags": [
+    -3,
+    -2,
+    -1,
+    0,
+    1,
+    2,
+    3
+  ],
+  "null_calibration_seeds": 200,
+  "fresh_evaluation_seeds_per_scenario": 80,
+  "rff_features": 24,
+  "combined_fwer_threshold": 0.1562776683093607,
+  "calibration_exceedance_rate": 0.045,
+  "linear_only_threshold_separate_audit": 0.15841315487472635,
+  "linear_only_null_exceedance": 0.04666666666666667,
+  "linear_only_nonlinear_square_detection": 0.05,
+  "linear_only_nonlinear_square_localization": 0.16,
+  "results": {
+    "common_pair": {
+      "detection_rate": 1.0,
+      "target_pair_localization_rate": 1.0,
+      "median_score": 0.5707896865881903,
+      "median_significant_pairs": 1.0,
+      "nonlinear_channel_dominant_rate": 0.0
+    },
+    "direct_linear": {
+      "detection_rate": 1.0,
+      "target_pair_localization_rate": 1.0,
+      "median_score": 0.7522125567848896,
+      "median_significant_pairs": 1.0,
+      "nonlinear_channel_dominant_rate": 0.0
+    },
+    "global_common": {
+      "detection_rate": 1.0,
+      "target_pair_localization_rate": 0.05,
+      "median_score": 0.4176511804155184,
+      "median_significant_pairs": 15.0,
+      "nonlinear_channel_dominant_rate": 0.0
+    },
+    "nonlinear_square": {
+      "detection_rate": 1.0,
+      "target_pair_localization_rate": 1.0,
+      "median_score": 0.2911499682803643,
+      "median_significant_pairs": 1.0,
+      "nonlinear_channel_dominant_rate": 1.0
+    },
+    "nonlinear_tanh": {
+      "detection_rate": 1.0,
+      "target_pair_localization_rate": 1.0,
+      "median_score": 0.751429056740099,
+      "median_significant_pairs": 1.0,
+      "nonlinear_channel_dominant_rate": 0.0
+    },
+    "null": {
+      "detection_rate": 0.0375,
+      "target_pair_localization_rate": 0.075,
+      "median_score": 0.12222863176998755,
+      "median_significant_pairs": 0.0,
+      "nonlinear_channel_dominant_rate": 0.0
+    }
+  },
+  "decision": "PILOT_PASS_FOR_NONLINEAR_REPAIR; REAL-DATA SIX-THEORY RUN NOT YET ELIGIBLE",
+  "blocking_items": [
+    "MDO is static theorem-level data, not a residual time series",
+    "FPCRH/FCA is hypothesis-only in located sources",
+    "SRRD, history-causality, and HCVL raw aligned seed/trajectory artifacts were not located in File Library search; only reports/summaries were located"
+  ]
+}
