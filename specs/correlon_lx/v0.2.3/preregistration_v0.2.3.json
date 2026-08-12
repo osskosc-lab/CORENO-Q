@@ -1,0 +1,132 @@
+{
+  "version": "Correlon-LX-v0.2.3",
+  "protocol_source_sha256": "A0329E539CCE2D3CB23BC021E1943C580443F66800AB2D44B7BC4E8B944ED6AB",
+  "status": "EXECUTABLE_CALIBRATION_AND_NONLINEAR_FREEZE",
+  "runtime": {
+    "python": "3.13.13",
+    "numpy": "2.4.4",
+    "rng": "numpy.random.Generator(numpy.random.PCG64(uint64_seed))",
+    "floating_point": "IEEE-754 float64"
+  },
+  "state_and_generators": {
+    "variables_in_order": ["D", "R", "H", "P", "F", "V"],
+    "initial_state": 0.0,
+    "burn_in": 200,
+    "retained_length": 600,
+    "common_ar": 0.45,
+    "innovation_distribution": "independent N(0,1)",
+    "draw_order": "draw eps shape (800,6) in variable order, then eta length 800; unused eta is still drawn",
+    "null": "X[j,t]=0.45*X[j,t-1]+eps[j,t]",
+    "direct_linear": "null except V[t]=0.45*V[t-1]+0.65*H[t-1]+eps[V,t]",
+    "common_pair": "Z[t]=0.60*Z[t-1]+eta[t]; H[t] and V[t] receive 0.70*Z[t-1]",
+    "nonlinear_square": "V[t]=0.45*V[t-1]+0.75*(H[t-1]^2-sigma_H^2)/(sqrt(2)*sigma_H^2)+eps[V,t]",
+    "nonlinear_tanh": "V[t]=0.45*V[t-1]+0.90*tanh(H[t-1]/sigma_H)+eps[V,t]",
+    "global_common": "Z[t]=0.60*Z[t-1]+eta[t]; every X[j,t] receives 0.55*Z[t-1]",
+    "target_pair": ["H", "V"]
+  },
+  "representations": {
+    "R1": "z-score, ddof=0, scale<=1e-12 maps to zero",
+    "R2": "median / (1.482602218505602*MAD), scale<=1e-12 maps to zero",
+    "R3": "average ranks; p=(rank-.5)/600 clipped to [1e-6,1-1e-6]; NormalDist inverse CDF",
+    "R4": "linear-method 1/99 percent winsorization then R1",
+    "application_order": "transform each full retained series before lag alignment"
+  },
+  "detector": {
+    "lags": [-3, -2, -1, 0, 1, 2, 3],
+    "lag_definition": "S_XY(lag)=S(X[t],Y[t+lag]); overlap only",
+    "linear_channel": "absolute Pearson correlation",
+    "nonlinear_kernel": "Gaussian RBF with sigma=1",
+    "rff_feature": "sqrt(2/m)*cos(w*x+b), w~N(0,1), b~Uniform(0,2*pi)",
+    "normalized_hsic": "column-center RFF matrices; ||Cxy||_F^2/sqrt(||Cxx||_F^2*||Cyy||_F^2), denominator<=1e-15 maps to zero",
+    "channel_storage": "linear and nonlinear pair/lag scores are computed and retained separately",
+    "combined_pair_score": "max over lags and over the two channels",
+    "rff_seed": "version|RFF|candidate|member|representation|pair|lag|side -> SHA256 first 8 bytes unsigned big-endian"
+  },
+  "capacity_ladder": {
+    "candidates_in_tie_order": ["rff24", "rff64", "rff128", "ensemble4x32"],
+    "definitions": {
+      "rff24": [24],
+      "rff64": [64],
+      "rff128": [128],
+      "ensemble4x32": [32, 32, 32, 32]
+    },
+    "ensemble_rule": "mean of the four independently seeded normalized-HSIC scores at each pair and lag",
+    "effective_capacity": {"rff24": 24, "rff64": 64, "rff128": 128, "ensemble4x32": 128},
+    "selection_order": "lowest effective capacity, then candidates_in_tie_order",
+    "no_unlisted_capacity": true
+  },
+  "conformal": {
+    "calibration_replicates": 1999,
+    "formula": "p(s)=(1+count(M_b>=s))/(B+1)",
+    "reject_when": "p<=0.05",
+    "calibration_null": "fresh independent draws from G_null; no block permutation",
+    "evaluation_null": "fresh independent draws from G_null; no block permutation",
+    "calibration_and_evaluation_namespaces_disjoint": true,
+    "familywise_max": "maximum over all 15 pairs and seven lags for the relevant channel set"
+  },
+  "phase0c": {
+    "representation": "R1",
+    "candidate_capacities": ["rff24", "rff64", "rff128", "ensemble4x32"],
+    "fresh_null_evaluation_replicates": 1000,
+    "primary_exchangeability_gate": "same G_null generator and disjoint deterministic namespaces; permutation prohibited",
+    "diagnostic_fwer_max": 0.06,
+    "failure_decision": "STOP_NULL_CALIBRATION_INVALID"
+  },
+  "phase0n": {
+    "representation": "R1",
+    "fresh_development_replicates": {"nonlinear_square": 100, "null": 100, "direct_linear": 100},
+    "selection_gates": {
+      "nonlinear_square_tpr_min": 0.90,
+      "nonlinear_null_fpr_max": 0.05,
+      "direct_combined_tpr_min": 0.90,
+      "direct_linear_tpr_min": 0.80,
+      "phase0c_candidate_fwer_max": 0.06
+    },
+    "failure_decision": "STOP_NONLINEAR_DETECTOR_INADEQUATE"
+  },
+  "phase0r": {
+    "freshness": "capacity is fixed before a disjoint confirmatory namespace is opened",
+    "calibration_replicates_per_representation": 1999,
+    "fresh_evaluation_replicates_per_condition": 200,
+    "conditions": ["null", "direct_linear", "common_pair", "nonlinear_square", "nonlinear_tanh", "global_common"],
+    "global_broad_mode": "at least 8 of 15 combined pair p-values are <=0.05",
+    "localization": "target H-V is significant and is the unique maximum pair score in the relevant channel",
+    "per_representation_gates": {
+      "fwer_max": 0.06,
+      "direct_combined_tpr_min": 0.80,
+      "direct_combined_localization_min": 0.80,
+      "common_combined_tpr_min": 0.80,
+      "common_combined_localization_min": 0.80,
+      "square_nonlinear_tpr_min": 0.80,
+      "square_nonlinear_localization_min": 0.80,
+      "square_linear_tpr_max": 0.20,
+      "global_broad_mode_rate_min": 0.80
+    },
+    "phase_pass": "at least three of four representations pass every gate",
+    "decision_precedence": [
+      "if fewer than three representations pass the null gate: STOP_NULL_CALIBRATION_INVALID",
+      "else if fewer than three pass all square nonlinear and square linear-control gates: STOP_NONLINEAR_DETECTOR_INADEQUATE",
+      "else if fewer than three pass all gates: STOP_REPRESENTATION_INSTABILITY",
+      "else PHASE_0R_PASS"
+    ]
+  },
+  "seed_mapping": {
+    "algorithm": "UTF-8 canonical string -> SHA256 -> first 8 bytes unsigned big-endian uint64",
+    "partitions": ["phase0c-calibration", "phase0c-evaluation", "phase0n-development", "phase0r-calibration", "phase0r-evaluation"],
+    "all_partitions_disjoint": true,
+    "confirmatory_evaluation_raw_data_shared_across_representations": true
+  },
+  "post_result_changes_prohibited": [
+    "generator coefficients",
+    "capacity candidates or ordering",
+    "ensemble aggregation",
+    "kernel bandwidth",
+    "lag range",
+    "representation definitions",
+    "conformal alpha",
+    "sample counts",
+    "gate thresholds"
+  ],
+  "phase1a_rule": "enter only on PHASE_0R_PASS; otherwise qualified theories and candidate edges remain zero",
+  "scientific_claim_boundary": "candidate-edge generator only"
+}

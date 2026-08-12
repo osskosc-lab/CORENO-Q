@@ -1,0 +1,30 @@
+{
+  "version": "Correlon-LX-v0.2.3",
+  "revision_parent": {
+    "version": "Correlon-LX-v0.2.2",
+    "source_commit": "cc7ef283300a4402d2e3af845a56566326c4e6db",
+    "interface_sha256": "324CFCB986B0161A151B9C4E3E8ED96A28724ACA3B8224EF66DA9216CA6BFB06",
+    "final_decision_sha256": "92CADFA903D64CA71885F222E0976825A4C35E9DD02907FAD099E133EF9B8AED",
+    "decision": "STOP_REPRESENTATION_INSTABILITY"
+  },
+  "revision_scope": "calibration-equivalence-and-nonlinear-channel-qualification",
+  "scientific_role": "cross-theory residual discovery service; candidate-edge generator only",
+  "phase_order": [
+    "CYCLE_0F_REPOSITORY_FREEZE",
+    "PHASE_0C_CALIBRATION_EQUIVALENCE",
+    "PHASE_0N_NONLINEAR_DETECTOR_QUALIFICATION",
+    "PHASE_0R_CONFIRMATORY_REPRESENTATION_ROBUSTNESS",
+    "PHASE_1A_ADAPTER_QUALIFICATION_IF_AND_ONLY_IF_PHASE_0R_PASS"
+  ],
+  "prohibited_inference": [
+    "LX-positive implies direct causation",
+    "LX-positive implies shared ontology",
+    "LX-positive implies theory identity",
+    "LX-positive implies consciousness or qualia"
+  ],
+  "integrity": {
+    "scheme": "external-manifest-sha256",
+    "manifest": "manifest.sha256",
+    "self_referential_digest_fields": false
+  }
+}
