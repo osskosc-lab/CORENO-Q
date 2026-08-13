@@ -1,0 +1,21 @@
+{
+  "version": "Correlon-LX-v0.3",
+  "phase": "1A Adapter Qualification",
+  "run": "phase1a-run1",
+  "decision": "STOP_COMBINED_SEMANTICS_MISMATCH",
+  "gate_results": {
+    "A0": true,
+    "A1": true,
+    "A2": true,
+    "A3": true,
+    "A4": true,
+    "A5": false,
+    "A6": true,
+    "A7": false
+  },
+  "eligible_for_phase1b": false,
+  "phase1b_entered": false,
+  "claim_level_reached": "L0",
+  "claim_ceiling": "L3 shared-structure discovery; L4 causal-link claim prohibited",
+  "source_result": "artifacts/phase1a-run1/results/decision.json"
+}
