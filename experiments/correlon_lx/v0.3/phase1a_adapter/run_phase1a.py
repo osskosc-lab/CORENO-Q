@@ -7,6 +7,7 @@ import importlib.util
 import json
 import multiprocessing as mp
 import os
+import subprocess
 import time
 from pathlib import Path
 
@@ -39,6 +40,14 @@ GATES_PATH = ROOT / "experiments/correlon_lx/v0.3/phase1a_adapter/gates.json"
 
 def sha256(path: Path) -> str:
     return hashlib.sha256(path.read_bytes()).hexdigest().upper()
+
+
+def introducing_commit(path: Path) -> str:
+    return subprocess.check_output(
+        ["git", "log", "-1", "--format=%H", "--", str(path.relative_to(ROOT))],
+        cwd=ROOT,
+        text=True,
+    ).strip()
 
 
 def preregistration_bundle_sha256() -> str:
@@ -320,7 +329,7 @@ def run(freeze_path: Path, output: Path, workers: int) -> dict:
     result.update(
         {
             "source_commit": freeze["source_commit"],
-            "freeze_commit": freeze["freeze_commit"],
+            "freeze_commit": introducing_commit(freeze_path),
             "preregistration_bundle_sha256": preregistration_bundle_sha256(),
             "seed_namespace": "Correlon-LX-v0.3|phase1a-paired|condition|replicate",
             "calibration_source": CALIBRATION_PATH.relative_to(ROOT).as_posix(),
