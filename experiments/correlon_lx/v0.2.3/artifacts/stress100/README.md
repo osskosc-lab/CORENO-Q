@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.9 seconds
-Output:
 # v0.2.3 stress100
 
 Decision: `STRESS_PASS`.
@@ -17,4 +14,3 @@ This is an engineering stress test, not a replacement confirmatory Phase 0R. It 
 - square Pearson target rejection: 0.02-0.08 across representations
 
 The existing Phase 0R decision remains the scientific decision. This stress result only supports implementation stability under a disjoint seed namespace.
-

@@ -1,0 +1,11 @@
+{
+  "version": "Correlon-LX-v0.3",
+  "phase": "1A PRECHECK",
+  "decision": "STOP_PARENT_ARTIFACT_NOT_MACHINE_READABLE",
+  "phase1a_seed_namespace_opened": false,
+  "parent_artifact": "experiments/correlon_lx/v0.2.3/artifacts/stress100/decision.json",
+  "observed_sha256": "D6C3F857B49BA1175447FE711CC6C307C3A0D19377C55B84EF73D1D68DF2086B",
+  "failure": "JSON parsing failed at byte 0 because connector execution-log text preceded the JSON payload",
+  "preservation_rule": "Do not amend or delete run0. Restore the deterministic v0.2.3 stress artifacts, then create a fresh Phase 1A repository freeze and run namespace.",
+  "scientific_effect": "No Phase 1A observation was generated and no gate was evaluated."
+}

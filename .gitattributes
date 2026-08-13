@@ -17,3 +17,9 @@
 /specs/correlon_lx/v0.2.3/README.md -text
 /specs/correlon_lx/v0.2.3/preregistration_v0.2.3.json -text
 /specs/correlon_lx/v0.2.3/manifest.sha256 -text
+/experiments/correlon_lx/v0.2.3/src/stress100.py -text
+/experiments/correlon_lx/v0.2.3/artifacts/stress100/README.md -text
+/experiments/correlon_lx/v0.2.3/artifacts/stress100/artifact_sha256.csv -text
+/experiments/correlon_lx/v0.2.3/artifacts/stress100/decision.json -text
+/experiments/correlon_lx/v0.2.3/artifacts/stress100/runs.csv -text
+/experiments/correlon_lx/v0.2.3/artifacts/stress100/summary.csv -text
