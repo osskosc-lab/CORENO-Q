@@ -1,0 +1,31 @@
+{
+  "version": "Correlon-LX-v0.3",
+  "phase": "1A Adapter Qualification",
+  "run": "phase1a-run1",
+  "decision": "PHASE1A_REPOSITORY_FREEZE_COMPLETE",
+  "eligible_for_phase1a": true,
+  "source_commit": "24ecef1aa5f122e7f6c094c0ef6e047e8221841d",
+  "parent_artifact_commit": "74796ecd7e91186155776023e4d1e77d164d353a",
+  "parent_v0.2.3_scientific_head": "4419277c71f9dfaf0ebdf2edd122ff268f78209c",
+  "preregistration_bundle_sha256": "8D5E9F1E0FC2CF514C99ACEEB2547820A6FC69C066946C0F90AC2421D7C86112",
+  "source_sha256": {
+    "preregistration.md": "1E3BA5FDB5F71285F68F4835AEAE840B6A8476FB353EEE1ECA34E1EF1C0FE6CE",
+    "gates.json": "0066C4A1EF6EB9D42CB5E00AE580BEF8FD8D2EBCECE9A21BBC12A421689864C8",
+    "run_phase1a.py": "83E5612CF0E16826915A17BABE0802CE6E848A36861D5AEFF3511BA7C7AB4AD0",
+    "test_phase1a.py": "AA5D02FCA3D3D56F5C11F88B69B807C30EDA58BCCD800D9C14C19F07471858DD"
+  },
+  "parent_sha256": {
+    "calibration_maxima.csv": "A3180D03B7BBFA46497C4695C85E03161B1FE32B6E21F84B0006419EE1A9CA08",
+    "final_decision.json": "700C4CF6324EB2B346E744D3480E6D590114C7A6BD96F091708BA9460EC9688C",
+    "stress_decision.json": "52BA226BEC95ADC6F4396435BE558C8627D62E744E9055DAA6A3F37436DF948E"
+  },
+  "parent_replay": {
+    "runs_csv_sha256": "4C3CB2687B73510549ECC416BA2999429C4645B3DB60EA600D942B0A03BB44C9",
+    "summary_csv_sha256": "5D5A3DCF24536A3A547AA8D2CCD9C5DB94D83A914037985AB8B02B7F2224FE4B",
+    "decision_equal_ignoring_elapsed_seconds": true
+  },
+  "seed_namespace_reserved": "Correlon-LX-v0.3|phase1a-paired|condition|replicate",
+  "seed_namespace_opened": false,
+  "frozen_at": "2026-08-13T11:42:00+09:00",
+  "note": "Fresh freeze after run0 stopped before seeds. Parent stress artifacts are valid JSON/CSV and deterministic replay matched."
+}
