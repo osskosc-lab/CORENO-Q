@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 1 seconds
-Output:
 representation,condition,n,combined_rate,nonlinear_rate,linear_rate,finite_failures,bounded_failures
 R1,null,100,0.0,0.0,0.0,0,0
 R1,direct_linear,100,1.0,1.0,1.0,0,0
@@ -26,4 +23,3 @@ R4,common_pair,100,1.0,1.0,1.0,0,0
 R4,nonlinear_square,100,0.05,1.0,0.05,0,0
 R4,nonlinear_tanh,100,1.0,1.0,1.0,0,0
 R4,global_common,100,1.0,1.0,1.0,0,0
-

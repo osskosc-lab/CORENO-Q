@@ -1,6 +1,3 @@
-Exit code: 0
-Wall time: 0.9 seconds
-Output:
 from __future__ import annotations
 
 import argparse
@@ -132,4 +129,3 @@ def main() -> int:
 
 if __name__ == "__main__":
     main()
-

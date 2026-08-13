@@ -1,0 +1,41 @@
+{
+  "validation": "INDEPENDENT_RECOMPUTATION_COMPLETE",
+  "assessment": "Ready to share as a formal STOP",
+  "rows": 2400,
+  "unique_experimental_keys": 2400,
+  "rows_per_representation_condition_cell": 100,
+  "numeric_failures": 0,
+  "range_failures": 0,
+  "gate_results_recomputed": {
+    "A0": true,
+    "A1": true,
+    "A2": true,
+    "A3": true,
+    "A4": true,
+    "A5": false,
+    "A6": true,
+    "A7": false
+  },
+  "gate_results_match_decision": true,
+  "minimum_paired_agreement": 0.94,
+  "minimum_agreement_cells": [
+    "R3:nonlinear_square:linear",
+    "R3:nonlinear_square:combined"
+  ],
+  "maximum_representation_spread": 0.07,
+  "combined_or_mismatches": 401,
+  "combined_or_mismatches_by_cell": {
+    "R1:null": 9,
+    "R1:nonlinear_square": 91,
+    "R2:null": 6,
+    "R2:nonlinear_square": 92,
+    "R3:null": 6,
+    "R3:nonlinear_square": 98,
+    "R4:null": 5,
+    "R4:nonlinear_square": 94
+  },
+  "decision_recomputed": "STOP_COMBINED_SEMANTICS_MISMATCH",
+  "methodology_caveat": "The frozen combined score is a raw maximum of differently scaled channels and is tested against a separate combined-null calibration; this does not implement logical OR of calibrated channel decisions.",
+  "causal_claim_prohibited": true,
+  "post_result_scientific_parameter_changes": []
+}

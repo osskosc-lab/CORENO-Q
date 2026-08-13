@@ -1,0 +1,18 @@
+{
+  "pdf": "correlon_lx_v0.3_phase1a_adapter_qualification_report.pdf",
+  "pdf_sha256": "B50BFDFC7DE3FDED15F6AE1A5E8DD05F9264685BD12C0EE8413E64AB467E5A56",
+  "page_count": 4,
+  "page_size": "A4",
+  "render_check": "PASS",
+  "rendered_pages_inspected": [1, 2, 3, 4],
+  "layout_defects": 0,
+  "text_extraction_check": "PASS",
+  "required_text_present": [
+    "STOP_COMBINED_SEMANTICS_MISMATCH",
+    "2,400",
+    "401",
+    "Phase 1B",
+    "89a35639c5131755c1fad3382242575e8917223a"
+  ],
+  "visual_design_note": "Exact audit tables were used instead of charts because the evidence consists of binary gates and a small fixed representation matrix; a chart would reduce precision without adding a meaningful relationship."
+}

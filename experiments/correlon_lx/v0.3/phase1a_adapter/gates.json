@@ -1,0 +1,21 @@
+{
+  "version": "Correlon-LX-v0.3",
+  "phase": "1A Adapter Qualification",
+  "replicates_per_condition": 100,
+  "alpha": 0.05,
+  "candidate": "rff24",
+  "gates": {
+    "A0": {"nonfinite_failures_max": 0, "range_failures_max": 0},
+    "A1": {"adapted_null_combined_fwer_max": 0.05, "scope": "every representation"},
+    "A2": {"adapted_direct_linear_sensitivity_min": 0.95, "scope": "every representation"},
+    "A3": {"adapted_square_nonlinear_sensitivity_min": 0.95, "adapted_tanh_nonlinear_sensitivity_min": 0.95, "scope": "every representation"},
+    "A4": {"adapted_square_linear_fp_max": 0.10, "scope": "every representation"},
+    "A5": {"paired_decision_agreement_min": 0.95, "scope": "every representation-condition-channel cell"},
+    "A6": {"representation_rate_spread_max": 0.10, "scope": "A1-A5 primary performance cells"},
+    "A7": {"combined_semantics": "OR", "adapted_decision_mismatches_max": 0}
+  },
+  "pass_decision": "ADAPTER_QUALIFIED",
+  "a7_failure_decision": "STOP_COMBINED_SEMANTICS_MISMATCH",
+  "other_failure_decision": "STOP_ADAPTER_QUALIFICATION",
+  "phase1b_requires": "ADAPTER_QUALIFIED"
+}
