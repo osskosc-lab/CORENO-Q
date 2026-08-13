@@ -1,0 +1,26 @@
+{
+  "overall_assessment": "READY_TO_SHARE_WITH_SCOPE_CAVEAT",
+  "validated_source_commit": "5931b28f7a26a486ba6cb97be5f885e333a04607",
+  "checks": {
+    "fresh_detached_clone": "PASS",
+    "implementation_and_freeze_tests": "9/9 PASS",
+    "phase0c_calibration_rows": 7996,
+    "phase0c_evaluation_rows": 4000,
+    "phase0n_development_rows": 1200,
+    "phase0r_calibration_rows": 7996,
+    "phase0r_evaluation_rows": 4800,
+    "phase0r_metric_recomputation_from_run_rows": "PASS",
+    "conformal_p_values_on_1_over_2000_grid": "PASS",
+    "seed_partitions_disjoint_by_canonical_namespace": "PASS",
+    "synthetic_block_permutation_absent": "PASS",
+    "post_result_parameter_changes": 0
+  },
+  "data_quality": {
+    "expected_row_counts_complete": true,
+    "all_four_representations_present": true,
+    "all_six_confirmatory_conditions_present": true,
+    "nonlinear_and_linear_channels_stored_separately": true
+  },
+  "scope_caveat": "This validates the synthetic detector and representation protocol only. It does not qualify any theory, identify a causal edge, or execute Phase 1A.",
+  "reporting_correction": "The executable emitted phase1a_entered=true on Phase 0R PASS. Because no Phase 1A procedure was run, the audited final decision records eligible_for_phase1a=true and phase1a_entered=false; all scientific metrics are unchanged."
+}

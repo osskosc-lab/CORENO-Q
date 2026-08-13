@@ -1,0 +1,41 @@
+{
+  "phase": "0C Calibration Equivalence",
+  "decision": "PHASE_0C_PASS",
+  "calibration_replicates": 1999,
+  "fresh_null_evaluation_replicates": 1000,
+  "exchangeability": {
+    "calibration_generator": "G_null",
+    "evaluation_generator": "G_null",
+    "calibration_namespace": "phase0c-calibration",
+    "evaluation_namespace": "phase0c-evaluation",
+    "namespaces_disjoint": true,
+    "block_permutation_used": false,
+    "primary_gate_pass": true
+  },
+  "candidate_metrics": [
+    {
+      "candidate": "rff24",
+      "combined_fwer": 0.051,
+      "nonlinear_fwer": 0.053,
+      "combined_fwer_pass": true
+    },
+    {
+      "candidate": "rff64",
+      "combined_fwer": 0.051,
+      "nonlinear_fwer": 0.049,
+      "combined_fwer_pass": true
+    },
+    {
+      "candidate": "rff128",
+      "combined_fwer": 0.051,
+      "nonlinear_fwer": 0.041,
+      "combined_fwer_pass": true
+    },
+    {
+      "candidate": "ensemble4x32",
+      "combined_fwer": 0.051,
+      "nonlinear_fwer": 0.045,
+      "combined_fwer_pass": true
+    }
+  ]
+}

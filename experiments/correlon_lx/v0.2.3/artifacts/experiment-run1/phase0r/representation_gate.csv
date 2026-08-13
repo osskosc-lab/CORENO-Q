@@ -1,0 +1,5 @@
+representation,fwer,direct_tpr,direct_localization,common_tpr,common_localization,square_nonlinear_tpr,square_nonlinear_localization,square_linear_tpr,tanh_combined_tpr_diagnostic,global_broad_mode_rate,fwer_pass,direct_tpr_pass,direct_localization_pass,common_tpr_pass,common_localization_pass,square_nonlinear_tpr_pass,square_nonlinear_localization_pass,square_linear_control_pass,global_broad_mode_pass,representation_pass
+R1,0.05,1.0,1.0,1.0,1.0,1.0,1.0,0.085,1.0,1.0,True,True,True,True,True,True,True,True,True,True
+R2,0.035,1.0,1.0,1.0,1.0,1.0,1.0,0.085,1.0,1.0,True,True,True,True,True,True,True,True,True,True
+R3,0.035,1.0,1.0,1.0,1.0,1.0,1.0,0.025,1.0,1.0,True,True,True,True,True,True,True,True,True,True
+R4,0.04,1.0,1.0,1.0,1.0,1.0,1.0,0.04,1.0,1.0,True,True,True,True,True,True,True,True,True,True

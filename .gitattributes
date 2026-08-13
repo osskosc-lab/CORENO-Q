@@ -12,3 +12,8 @@
 /specs/correlon_lx/v0.2.2/README.md -text
 /specs/correlon_lx/v0.2.2/phase0r_preregistration_v0.2.2.json -text
 /specs/correlon_lx/v0.2.2/manifest.sha256 -text
+/experiments/correlon_lx/v0.2.2/artifacts/final_decision.json -text
+/specs/correlon_lx/v0.2.3/interface_freeze.json -text
+/specs/correlon_lx/v0.2.3/README.md -text
+/specs/correlon_lx/v0.2.3/preregistration_v0.2.3.json -text
+/specs/correlon_lx/v0.2.3/manifest.sha256 -text

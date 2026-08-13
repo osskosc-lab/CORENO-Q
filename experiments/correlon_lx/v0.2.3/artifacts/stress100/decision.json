@@ -1,0 +1,31 @@
+Exit code: 0
+Wall time: 0.8 seconds
+Output:
+{
+  "version": "Correlon-LX-v0.2.3",
+  "test": "stress100",
+  "decision": "STRESS_PASS",
+  "iterations": 100,
+  "datasets": 2400,
+  "representations": [
+    "R1",
+    "R2",
+    "R3",
+    "R4"
+  ],
+  "conditions": [
+    "null",
+    "direct_linear",
+    "common_pair",
+    "nonlinear_square",
+    "nonlinear_tanh",
+    "global_common"
+  ],
+  "candidate": "rff24",
+  "calibration_source": "experiments/correlon_lx/v0.2.3/artifacts/experiment-run1/phase0r/calibration_maxima.csv",
+  "seed_namespace": "Correlon-LX-v0.2.3|stress100|iteration|representation|condition",
+  "elapsed_seconds": 21.113442420959473,
+  "numeric_failures": 0,
+  "scientific_status": "engineering_stress_only; does_not_replace_confirmatory_phase0r"
+}
+
